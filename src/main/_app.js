@@ -8,8 +8,8 @@ import GuidGenerator from "./pages/guidGenerator";
 function App() {
   return (
     <ThemeProvider theme={devTheme}>
+      <CssBaseline />
       <SnackbarProvider maxSnack={3}>
-        <CssBaseline />
         <div className="flex min-h-screen  flex-col justify-between">
           <Nav />
           <GuidGenerator />
