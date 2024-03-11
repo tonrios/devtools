@@ -1,0 +1,13 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.logo-img {
+  filter: brightness(0) invert(1);
+}
