@@ -1,7 +1,9 @@
-import { Box, Button, Checkbox, FormControlLabel, FormGroup, TextField, Typography } from "@mui/material";
+import { Box, Button, Checkbox, FormControlLabel, FormGroup, InputAdornment, TextField, Typography } from "@mui/material";
 import { useSnackbar } from "notistack";
 import { useState } from "react";
 import { v4 } from "uuid";
+import devTheme from "../../../core/theme";
+import TypingAnimation from "../../components/typingAnimation";
 
 export default function GuidGenerator() {
   const { enqueueSnackbar } = useSnackbar();
@@ -38,7 +40,7 @@ export default function GuidGenerator() {
       arrayGuids.push(guid);
     }
 
-    setResult(arrayGuids.join(ckbreakLine ? "\n" : " "));
+    setResult(arrayGuids.join(ckbreakLine ? "\n" : ""));
   };
 
   function handeFocus() {
@@ -52,12 +54,12 @@ export default function GuidGenerator() {
     <>
       <main className="flex-grow m-auto flex flex-col justify-between sm:w-full md:w-[800px] px-8 sm:px-0">
         <Typography variant="h4" component="h2" style={{ textAlign: "center" }}>
-          GUID GENERATOR
+          <TypingAnimation text="GUID GENERATOR" speed={80} />
         </Typography>
 
         <div className="py-10 sm:py-0">
           <TextField
-            label="How many GUIDs do you want ?"
+            label={<TypingAnimation text="How many GUIDs do you want?" speed={50} />}
             type="number"
             InputLabelProps={{
               shrink: true,
@@ -68,6 +70,14 @@ export default function GuidGenerator() {
             onChange={(e) => setQuantity(e.target.value)}
             variant="standard"
             helperText="(1-3000)"
+            FormHelperTextProps={{ style: { textAlign: "right", color: devTheme.palette.secondary.main } }}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start" className="animate-pulse">
+                  {">_"}
+                </InputAdornment>
+              ),
+            }}
           />
 
           <Box sx={{ display: "flex", justifyContent: "center" }}>
@@ -75,7 +85,7 @@ export default function GuidGenerator() {
               <FormControlLabel control={<Checkbox defaultChecked value={ckUpper} onChange={(e) => setCkUpper(e.target.checked)} style={{ padding: 4 }} />} label="uppercase" />
               <FormControlLabel control={<Checkbox value={ckBraces} onChange={(e) => setCkBraces(e.target.checked)} style={{ padding: 4 }} />} label="braces {}" />
               <FormControlLabel control={<Checkbox defaultChecked value={ckHyphens} onChange={(e) => setCkHyphens(e.target.checked)} style={{ padding: 4 }} />} label="hyphens -" />
-              <FormControlLabel control={<Checkbox value={ckQuotes} onChange={(e) => setCkQuotes(e.target.checked)} style={{ padding: 4 }} />} label='quotes " " ' />
+              <FormControlLabel control={<Checkbox value={ckQuotes} onChange={(e) => setCkQuotes(e.target.checked)} style={{ padding: 4 }} />} label='quotes "" ' />
             </FormGroup>
 
             <FormGroup className="ml-4" sx={{ m: 3 }} component="fieldset" variant="standard">
@@ -87,18 +97,25 @@ export default function GuidGenerator() {
               />
               <FormControlLabel
                 control={<Checkbox value={ckSingleQuotes} onChange={(e) => setCkSingleQuotes(e.target.checked)} style={{ padding: 4 }} />}
-                label="single quotes ' ' "
+                label="single quotes '' "
               />
             </FormGroup>
           </Box>
 
           <TextField
             fullWidth
-            label="Result"
+            label={<TypingAnimation text="Console" speed={120} />}
             multiline
             rows={10}
             value={result}
             onChange={(e) => setResult(e.target.value)}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start" className="animate-pulse" style={{ alignSelf: "flex-start", marginTop: 10 }}>
+                  {">_"}
+                </InputAdornment>
+              ),
+            }}
             onFocus={() => {
               handeFocus();
             }}
@@ -107,7 +124,7 @@ export default function GuidGenerator() {
         <div className="flex items-center flex-col sm:flex-row  justify-between gap-2 sm:gap-0">
           <Button
             variant="contained"
-            color="warning"
+            color="secondary"
             className="w-full sm:w-auto"
             onClick={() => {
               setResult("");

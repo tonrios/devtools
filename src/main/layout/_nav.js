@@ -4,14 +4,14 @@ import logo from "../../assets/img/ancoraLogo.png";
 export default function Nav() {
   return (
     <nav className="p-8 mb-8">
-      <div className="container mx-auto flex justify-between items-center">
-        <div className="flex items-center">
+      <div class="container mx-auto flex flex-col lg:flex-row justify-center lg:justify-between items-center">
+        <div class="flex items-center lg:items-start">
           <Link to="/">
-            <img src={logo} alt="Logo" className="h-16 logo-img" />{" "}
+            <img src={logo} alt="Logo" class="h-20  lg:h-12 logo-img" />
           </Link>
-          <span className="text-white ml-2 text-lg "></span>
+          <span class="text-white ml-2 text-lg "></span>
         </div>
-        <div className="flex items-center">{/* <Link to="/modelCreator">MODEL CREATOR</Link> */}</div>
+        <div class="flex items-center mt-4 lg:items-center lg:mt-0">{/* <Link to="/modelCreator">MODEL CREATOR</Link> */}</div>
       </div>
     </nav>
   );

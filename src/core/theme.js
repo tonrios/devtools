@@ -28,9 +28,10 @@ const devTheme = createTheme({
     },
     secondary: {
       main: draculaColors.pink,
+      contrastText: "#fff",
     },
     divider: {
-      main: draculaColors.pink,
+      main: draculaColors.purple,
     },
     text: {
       primary: draculaColors.foreground,

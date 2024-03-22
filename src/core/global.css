@@ -9,12 +9,12 @@
 }
 
 .logo-img {
-  filter: brightness(0) invert(1);
+  /* filter: brightness(0) invert(1); */
 }
 
 body {
-  --sb-track-color: #232e33;
-  --sb-thumb-color: #3cbcda;
+  --sb-track-color: #000009;
+  --sb-thumb-color: #8be9fd;
   --sb-size: 3px;
 }
 
