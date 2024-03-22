@@ -1,18 +1,62 @@
 "use client";
 import { createTheme } from "@mui/material/styles";
 
+export const draculaColors = {
+  background: "#000009",
+  currentLine: "#44475a",
+  selection: "#44475a",
+  foreground: "#f8f8f2",
+  comment: "#6272a4",
+  cyan: "#8be9fd",
+  green: "#50fa7b",
+  orange: "#ffb86c",
+  pink: "#ff79c6",
+  purple: "#bd93f9",
+  red: "#ff5555",
+  yellow: "#f1fa8c",
+};
+
 const devTheme = createTheme({
   palette: {
     mode: "dark",
+    background: {
+      default: draculaColors.background,
+      paper: draculaColors.background,
+    },
     primary: {
-      main: "#01E8F7",
+      main: draculaColors.purple, // Cor principal
     },
     secondary: {
-      main: "#f50057",
+      main: draculaColors.pink,
     },
-    background: {
-      default: "#1a2035",
-      paper: "#1a2035",
+    divider: {
+      main: draculaColors.pink,
+    },
+    text: {
+      primary: draculaColors.foreground,
+      secondary: draculaColors.cyan,
+      disabled: draculaColors.cyan,
+    },
+    success: {
+      main: draculaColors.green,
+    },
+    warning: {
+      main: draculaColors.orange,
+    },
+    error: {
+      main: draculaColors.red,
+    },
+  },
+  typography: {
+    fontFamily: "Menlo, Consolas, monospace", // Fonte monoespaçada
+  },
+  MuiLabel: {
+    root: {
+      color: draculaColors.purple,
+      backgroundColor: draculaColors.purple,
+      "&$focused": {
+        backgroundColor: draculaColors.purple,
+      },
     },
   },
 });

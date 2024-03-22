@@ -6,10 +6,7 @@ export default function Footer() {
 
   return (
     <footer className="footer text-center  sm:text-right p-9 pb-4">
-      {foorterTextDate}, made with{" "}
-      <i style={{ fontSize: 16, lineHeight: 0 }} className="material-icons animate-pulse   text-red-600">
-        favorite
-      </i>{" "}
+      {foorterTextDate}, made with <i className="material-icons animate-pulse text-red-600">favorite</i>
       <span> by </span>
       <a target="_blank" rel="noreferrer" style={{ color: devTheme.palette.primary.main }} href="https://github.com/tonrios">
         Rivanilton Rios

@@ -1,22 +1,25 @@
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { SnackbarProvider } from "notistack";
+
 import devTheme from "../core/theme";
-import Footer from "./layout/_footer";
-import Nav from "./layout/_nav";
-import GuidGenerator from "./pages/guidGenerator";
+import AppRouter from "../routes";
+import BgParticles from "./components/bgParticles";
 
 function App() {
   return (
-    <ThemeProvider theme={devTheme}>
-      <CssBaseline />
-      <SnackbarProvider maxSnack={3}>
-        <div className="flex min-h-screen  flex-col justify-between">
-          <Nav />
-          <GuidGenerator />
-          <Footer />
+    <>
+      <BgParticles />
+
+      <ThemeProvider theme={devTheme}>
+        <CssBaseline />
+
+        <div className="text-white">
+          <SnackbarProvider maxSnack={3}>
+            <AppRouter />
+          </SnackbarProvider>
         </div>
-      </SnackbarProvider>
-    </ThemeProvider>
+      </ThemeProvider>
+    </>
   );
 }
 

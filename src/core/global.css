@@ -11,3 +11,33 @@
 .logo-img {
   filter: brightness(0) invert(1);
 }
+
+body {
+  --sb-track-color: #232e33;
+  --sb-thumb-color: #3cbcda;
+  --sb-size: 3px;
+}
+
+i {
+  vertical-align: middle;
+}
+
+::-webkit-scrollbar {
+  width: var(--sb-size);
+}
+
+::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 3px;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  body {
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+  }
+}

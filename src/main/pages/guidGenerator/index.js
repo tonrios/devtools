@@ -49,68 +49,77 @@ export default function GuidGenerator() {
   }
 
   return (
-    <main className="flex-grow m-auto flex flex-col justify-between sm:w-full md:w-[800px] px-8 sm:px-0">
-      <Typography variant="h4" component="h2" style={{ textAlign: "center" }}>
-        GUID GENERATOR
-      </Typography>
+    <>
+      <main className="flex-grow m-auto flex flex-col justify-between sm:w-full md:w-[800px] px-8 sm:px-0">
+        <Typography variant="h4" component="h2" style={{ textAlign: "center" }}>
+          GUID GENERATOR
+        </Typography>
 
-      <div className="py-10 sm:py-0">
-        <TextField
-          label="How many GUIDs do you want ?"
-          type="number"
-          InputLabelProps={{
-            shrink: true,
-          }}
-          inputProps={{ min: 1, max: 3000 }}
-          fullWidth
-          value={quantity}
-          onChange={(e) => setQuantity(e.target.value)}
-          variant="standard"
-          helperText="(1-3000)"
-        />
+        <div className="py-10 sm:py-0">
+          <TextField
+            label="How many GUIDs do you want ?"
+            type="number"
+            InputLabelProps={{
+              shrink: true,
+            }}
+            inputProps={{ min: 1, max: 3000 }}
+            fullWidth
+            value={quantity}
+            onChange={(e) => setQuantity(e.target.value)}
+            variant="standard"
+            helperText="(1-3000)"
+          />
 
-        <Box sx={{ display: "flex", justifyContent: "center" }}>
-          <FormGroup className="ml-4" sx={{ m: 3 }} component="fieldset" variant="standard">
-            <FormControlLabel control={<Checkbox defaultChecked value={ckUpper} onChange={(e) => setCkUpper(e.target.checked)} style={{ padding: 4 }} />} label="uppercase" />
-            <FormControlLabel control={<Checkbox value={ckBraces} onChange={(e) => setCkBraces(e.target.checked)} style={{ padding: 4 }} />} label="braces {}" />
-            <FormControlLabel control={<Checkbox defaultChecked value={ckHyphens} onChange={(e) => setCkHyphens(e.target.checked)} style={{ padding: 4 }} />} label="hyphens -" />
-            <FormControlLabel control={<Checkbox value={ckQuotes} onChange={(e) => setCkQuotes(e.target.checked)} style={{ padding: 4 }} />} label='quotes " " ' />
-          </FormGroup>
+          <Box sx={{ display: "flex", justifyContent: "center" }}>
+            <FormGroup className="ml-4" sx={{ m: 3 }} component="fieldset" variant="standard">
+              <FormControlLabel control={<Checkbox defaultChecked value={ckUpper} onChange={(e) => setCkUpper(e.target.checked)} style={{ padding: 4 }} />} label="uppercase" />
+              <FormControlLabel control={<Checkbox value={ckBraces} onChange={(e) => setCkBraces(e.target.checked)} style={{ padding: 4 }} />} label="braces {}" />
+              <FormControlLabel control={<Checkbox defaultChecked value={ckHyphens} onChange={(e) => setCkHyphens(e.target.checked)} style={{ padding: 4 }} />} label="hyphens -" />
+              <FormControlLabel control={<Checkbox value={ckQuotes} onChange={(e) => setCkQuotes(e.target.checked)} style={{ padding: 4 }} />} label='quotes " " ' />
+            </FormGroup>
 
-          <FormGroup className="ml-4" sx={{ m: 3 }} component="fieldset" variant="standard">
-            <FormControlLabel control={<Checkbox value={ckCommas} onChange={(e) => setCkCommas(e.target.checked)} style={{ padding: 4 }} />} label="commas ," />
-            <FormControlLabel control={<Checkbox value={ckBase64} onChange={(e) => setCkBase64(e.target.checked)} style={{ padding: 4 }} />} label="base64 enconded" />
-            <FormControlLabel
-              control={<Checkbox defaultChecked value={ckbreakLine} onChange={(e) => setCkBreakLine(e.target.checked)} style={{ padding: 4 }} />}
-              label="break line"
-            />
-            <FormControlLabel
-              control={<Checkbox value={ckSingleQuotes} onChange={(e) => setCkSingleQuotes(e.target.checked)} style={{ padding: 4 }} />}
-              label="single quotes ' ' "
-            />
-          </FormGroup>
-        </Box>
+            <FormGroup className="ml-4" sx={{ m: 3 }} component="fieldset" variant="standard">
+              <FormControlLabel control={<Checkbox value={ckCommas} onChange={(e) => setCkCommas(e.target.checked)} style={{ padding: 4 }} />} label="commas ," />
+              <FormControlLabel control={<Checkbox value={ckBase64} onChange={(e) => setCkBase64(e.target.checked)} style={{ padding: 4 }} />} label="base64 enconded" />
+              <FormControlLabel
+                control={<Checkbox defaultChecked value={ckbreakLine} onChange={(e) => setCkBreakLine(e.target.checked)} style={{ padding: 4 }} />}
+                label="break line"
+              />
+              <FormControlLabel
+                control={<Checkbox value={ckSingleQuotes} onChange={(e) => setCkSingleQuotes(e.target.checked)} style={{ padding: 4 }} />}
+                label="single quotes ' ' "
+              />
+            </FormGroup>
+          </Box>
 
-        <TextField
-          fullWidth
-          label="Result"
-          multiline
-          rows={10}
-          value={result}
-          onChange={(e) => setResult(e.target.value)}
-          onFocus={() => {
-            handeFocus();
-          }}
-        />
-      </div>
-      <div className="flex items-center flex-col sm:flex-row  justify-between gap-2 sm:gap-0">
-        <Button variant="contained" color="error" className="w-full sm:w-auto" onClick={() => setResult("")}>
-          CLEAR
-        </Button>
-        <Button variant="contained" color="success" className="w-full sm:w-auto" onClick={() => genetateGuid()}>
-          GENERATE
-        </Button>
-      </div>
-    </main>
+          <TextField
+            fullWidth
+            label="Result"
+            multiline
+            rows={10}
+            value={result}
+            onChange={(e) => setResult(e.target.value)}
+            onFocus={() => {
+              handeFocus();
+            }}
+          />
+        </div>
+        <div className="flex items-center flex-col sm:flex-row  justify-between gap-2 sm:gap-0">
+          <Button
+            variant="contained"
+            color="warning"
+            className="w-full sm:w-auto"
+            onClick={() => {
+              setResult("");
+            }}
+          >
+            CLEAR
+          </Button>
+          <Button variant="contained" color="success" className="w-full sm:w-auto" onClick={() => genetateGuid()}>
+            GENERATE
+          </Button>
+        </div>
+      </main>
+    </>
   );
 }
