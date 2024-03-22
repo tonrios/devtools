@@ -81,15 +81,15 @@ export default function GuidGenerator() {
             }}
           />
 
-          <Box sx={{ display: "flex", justifyContent: "center" }}>
-            <FormGroup className="ml-4" sx={{ m: 3 }} component="fieldset" variant="standard">
+          <Box sx={{ display: "flex", justifyContent: "center", flexDirection: { xs: "column", sm: "row" } }}>
+            <FormGroup className="my-0 m-8 sm:my-6" component="fieldset" variant="standard">
               <FormControlLabel control={<Checkbox defaultChecked value={ckUpper} onChange={(e) => setCkUpper(e.target.checked)} style={{ padding: 4 }} />} label="uppercase" />
               <FormControlLabel control={<Checkbox value={ckBraces} onChange={(e) => setCkBraces(e.target.checked)} style={{ padding: 4 }} />} label="braces {}" />
               <FormControlLabel control={<Checkbox defaultChecked value={ckHyphens} onChange={(e) => setCkHyphens(e.target.checked)} style={{ padding: 4 }} />} label="hyphens -" />
               <FormControlLabel control={<Checkbox value={ckQuotes} onChange={(e) => setCkQuotes(e.target.checked)} style={{ padding: 4 }} />} label='quotes "" ' />
             </FormGroup>
 
-            <FormGroup className="ml-4" sx={{ m: 3 }} component="fieldset" variant="standard">
+            <FormGroup className="mt-0 m-8 sm:mt-8" component="fieldset" variant="standard">
               <FormControlLabel control={<Checkbox value={ckCommas} onChange={(e) => setCkCommas(e.target.checked)} style={{ padding: 4 }} />} label="commas ," />
               <FormControlLabel control={<Checkbox value={ckBase64} onChange={(e) => setCkBase64(e.target.checked)} style={{ padding: 4 }} />} label="base64 enconded" />
               <FormControlLabel
@@ -123,7 +123,7 @@ export default function GuidGenerator() {
             }}
           />
         </div>
-        <div className="flex items-center flex-col sm:flex-row  justify-between gap-2 sm:gap-0">
+        <div className="flex items-center mt-4 flex-col sm:flex-row  justify-between gap-2 sm:gap-0">
           <Button
             variant="contained"
             color="secondary"
