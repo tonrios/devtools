@@ -21,7 +21,7 @@ export default function GuidGenerator() {
 
   const genetateGuid = () => {
     if (quantity > 3000) {
-      enqueueSnackbar("the maximum limit is 3000 guids per request !", { variant: "error" });
+      enqueueSnackbar("The maximum limit size is 3000 GUIDs per request !", { variant: "error" });
       return false;
     }
     const arrayGuids = [];
@@ -53,8 +53,8 @@ export default function GuidGenerator() {
   return (
     <>
       <main className="flex-grow m-auto flex flex-col justify-between sm:w-full md:w-[800px] px-8 sm:px-0">
-        <Typography variant="h4" component="h2" style={{ textAlign: "center" }}>
-          <TypingAnimation text="GUID GENERATOR" speed={80} />
+        <Typography variant="h4" component="h2" style={{ textAlign: "center", color: devTheme.palette.secondary.main }}>
+          <TypingAnimation text=">_ GUID GENERATOR" speed={80} />
         </Typography>
 
         <div className="py-10 sm:py-0">
@@ -70,8 +70,9 @@ export default function GuidGenerator() {
             onChange={(e) => setQuantity(e.target.value)}
             variant="standard"
             helperText="(1-3000)"
-            FormHelperTextProps={{ style: { textAlign: "right", color: devTheme.palette.secondary.main } }}
+            FormHelperTextProps={{ style: { textAlign: "right", color: devTheme.palette.primary.main } }}
             InputProps={{
+              style: { color: devTheme.palette.secondary.main },
               startAdornment: (
                 <InputAdornment position="start" className="animate-pulse">
                   {">_"}
@@ -110,6 +111,7 @@ export default function GuidGenerator() {
             value={result}
             onChange={(e) => setResult(e.target.value)}
             InputProps={{
+              style: { color: devTheme.palette.primary.main },
               startAdornment: (
                 <InputAdornment position="start" className="animate-pulse" style={{ alignSelf: "flex-start", marginTop: 10 }}>
                   {">_"}
@@ -130,10 +132,10 @@ export default function GuidGenerator() {
               setResult("");
             }}
           >
-            CLEAR
+            CLEAR CONSOLE
           </Button>
           <Button variant="contained" color="success" className="w-full sm:w-auto" onClick={() => genetateGuid()}>
-            GENERATE
+            GENERATE SOME GUIDs
           </Button>
         </div>
       </main>
