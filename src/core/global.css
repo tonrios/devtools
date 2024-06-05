@@ -8,14 +8,33 @@
   }
 }
 
+body {
+  --primary: #bd93f9;
+  --secondary: #ff79c6;
+  --sb-track-color: #000009;
+  --sb-thumb-color: #8be9fd;
+  --sb-size: 3px;
+}
+
+.imagemBW {
+  filter: grayscale(100%);
+  /* Outras propriedades CSS, como largura e altura, podem ser definidas aqui */
+}
+
 .logo-img {
   /* filter: brightness(0) invert(1); */
 }
 
-body {
-  --sb-track-color: #000009;
-  --sb-thumb-color: #8be9fd;
-  --sb-size: 3px;
+.shape-outside-ellipse {
+  shape-outside: ellipse();
+}
+
+.text-primary {
+  color: var(--secondary);
+}
+
+.text-secondary {
+  color: var(--secondary);
 }
 
 i {

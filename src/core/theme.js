@@ -38,6 +38,9 @@ const devTheme = createTheme({
       secondary: draculaColors.cyan,
       disabled: draculaColors.cyan,
     },
+    info: {
+      main: draculaColors.cyan,
+    },
     success: {
       main: draculaColors.green,
     },

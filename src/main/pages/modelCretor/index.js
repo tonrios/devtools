@@ -6,7 +6,7 @@ import { Circles } from "react-loader-spinner";
 import apiGPT from "../../../services/apiGPT";
 import CodeView from "../../components/codeView";
 
-export default function ModelCreator() {
+const ModelCreatorPage = () => {
   const [lang, setLang] = useState("plaintext");
 
   const [resultadoDoChat, setResultadoDoChat] = useState("");
@@ -79,4 +79,6 @@ export default function ModelCreator() {
       </div>
     </div>
   );
-}
+};
+
+export default ModelCreatorPage;
