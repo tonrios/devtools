@@ -8,7 +8,7 @@ import BuyMeACoffeeButton from "./components/buyMeACoffee";
 
 function App() {
   return (
-    <>
+    <div style={{ height: "100vh" }}>
       <BgParticles />
 
       <ThemeProvider theme={devTheme}>
@@ -21,7 +21,7 @@ function App() {
           </SnackbarProvider>
         </div>
       </ThemeProvider>
-    </>
+    </div>
   );
 }
 
